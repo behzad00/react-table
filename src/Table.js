@@ -409,3 +409,5 @@ export class Table extends React.Component {
     )
   }
 }
+
+export * from './Table'

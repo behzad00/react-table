@@ -1,54 +1,64 @@
 import React from 'react'
-import { Table, TableHeaderRow, TableHeader } from '../../src'
+import { Table} from './Table'
+import { TableHeaderRow} from './TableHeaderRow'
+import { TableHeader} from './TableHeader'
 
 const data = [
   {
     id: 1,
     name: 'John Smith',
-    job: 'Developer',
-    location: 'USA'
+    job: 'Analyst',
+    location: 'Philadelphia',
+    level: '12'
   },
   {
     id: 2,
     name: 'Jane Doe',
-    job: 'Sales Manager',
-    location: 'EU'
+    job: 'Senior Analyst',
+    location: 'New York City',
+    level: '10'
   },
   {
     id: 3,
     name: 'Robert Jones',
-    job: 'Technical Manager',
-    location: 'UK'
+    job: 'Consultant',
+    location: 'Chicago',
+    level: '9'
   },
   {
     id: 4,
     name: 'Angela Stoneworth',
-    job: 'Sales Rep',
-    location: 'UK'
+    job: 'Senior Consultant',
+    location: 'Washington DC',
+    level: '8'
   },
   {
     id: 5,
     name: 'Jack Fire',
-    job: 'Developer',
-    location: 'USA'
+    job: 'Manager',
+    location: 'Miami',
+    level: '7'
   },
   {
     id: 6,
     name: 'Donny Doe',
-    job: 'Sales Manager',
-    location: 'EU'
+    job: 'Senior Manager',
+    location: 'Philadelphia',
+    level: '6'
   },
   {
     id: 7,
     name: 'Ruby Reynolds',
-    job: 'Technical Manager',
-    location: 'UK'
+    job: 'Manager',
+    location: 'New York City',
+    level: '7'
   },
   {
     id: 8,
     name: 'Lenard Bonaparte',
-    job: 'Sales Rep',
-    location: 'EU'
+    job: 'Analyst',
+    location: 'Chicago',
+    level: '12'
   }
 ]
 
@@ -108,6 +118,18 @@ class VerticalTable extends React.Component {
                     )}
                   </TableHeader>
                   <TableHeader accessor="location" filterable>
+                    {({ isSorting, onClick, sortable }) => (
+                      <div
+                        className={`td ${
+                          sortable ? 'sortable' : 'no-sortable'
+                        } ${isSorting ? (isSorting.asc ? 'asc' : 'desc') : ''}`}
+                        onClick={onClick}
+                      >
+                        Location
+                      </div>
+                    )}
+                  </TableHeader>
+                  <TableHeader accessor="level" filterable>
                     {({ isSorting, onClick, sortable }) => (
                       <div
                         className={`td ${
